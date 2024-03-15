@@ -1,14 +1,14 @@
 
 function isPalindrome(string) {
-     return string === string.split('').reverse().join('');
-    }
-    
-    const userInput = prompt("Please enter a word:");
-    if (isPalindrome(userInput)) {
-      alert(`"${userInput}" is a palindrome.`);
-    } else {
-      console.log(`"${userInput}" is not a palindrome.`);
-    }
+    return string === string.split('').reverse().join('');
+}
+
+const userInput = prompt("Please enter a word:");
+if (isPalindrome(userInput)) {
+    alert(`"${userInput}" is a palindrome.`);
+} else {
+    console.log(`"${userInput}" is not a palindrome.`);
+}
 /*--------------Feu tricolore--------------*/
 let lights = document.querySelectorAll('.light');//selectionn eles éléments du dom avec la classe light et les stockent dans lights
 let currentIndex = 0;//on initialise a zero, on l'utilisera pour suivre l'index de la lumière
@@ -37,49 +37,49 @@ const ouvrirModal = document.getElementById("ouvrir-modal");
 const fermerModale = document.querySelector(".fermer-modale");
 
 ouvrirModal.addEventListener("click", () => {
-  modale.style.display = "block";
+    modale.style.display = "block";
 });
 
 fermerModale.addEventListener("click", () => {
-  modale.style.display = "none";
+    modale.style.display = "none";
 });
 
 window.addEventListener("click", (event) => {
-  if (event.target === modale) {
-    modale.style.display = "none";
-  }
+    if (event.target === modale) {
+        modale.style.display = "none";
+    }
 });
 /*------------------Fin Modale------------------*/
 /*--------------Classe Javascript----------------*/
 class SommeNombres {
     constructor(listeNombres) {
-      this.listeNombres = listeNombres;
+        this.listeNombres = listeNombres;
     }
-  
+
     calculerSomme() {
-      let somme = 0;
-      for (let nombre of this.listeNombres) {
-        somme += nombre;
-      }
-      return somme;
+        let somme = 0;
+        for (let nombre of this.listeNombres) {
+            somme += nombre;
+        }
+        return somme;
     }
-  
+
     afficherResultat() {
-      const somme = this.calculerSomme();
-      console.log(`La somme des nombres de la liste est : ${somme}`);
+        const somme = this.calculerSomme();
+        console.log(`La somme des nombres de la liste est : ${somme}`);
     }
-  }
-  
-  // Utilisation de la classe
-  const listeNombres = [1, 2, 3, 4, 5];
-  const sommeNombres = new SommeNombres(listeNombres);
-  sommeNombres.afficherResultat();
+}
+
+// Utilisation de la classe
+const listeNombres = [1, 2, 3, 4, 5];
+const sommeNombres = new SommeNombres(listeNombres);
+sommeNombres.afficherResultat();
 /*-----------Fin Classe-----------*/
 
 /*------------Jeu aventurier-----------------*/
 
 /*----------------Module combat--------------*/
- class Arme {
+class Arme {
     constructor(hammer, shield, sword) {
         this.hammer = hammer;
         this.shield = shield;
@@ -89,8 +89,8 @@ class SommeNombres {
         return ` A ${this.hammer} and a ${this.shield} and a ${this.sword}`;
     }
 }
- class Sort {
-    constructor ( firespell, icespell, waterspell, rockrain) {
+class Sort {
+    constructor(firespell, icespell, waterspell, rockrain) {
         this.firespell = firespell;
         this.icespell = icespell;
         this.waterspell = waterspell;
@@ -101,8 +101,8 @@ class SommeNombres {
     }
 }
 /*------------module personnage---------------*/
- class Personnage {
-    constructor(nom, sante, force,titre) {
+class Personnage {
+    constructor(nom, sante, force, titre) {
         this.nom = nom;
         this.titre = titre;
         this.sante = sante;
@@ -113,8 +113,8 @@ class SommeNombres {
         return `${this.nom} a ${this.sante} points de vie et ${this.force} en force`;
     }
 }
- class Aventurier extends Personnage {
-    constructor (nom, sante, force, xp, titre = 'Aventurier') {
+class Aventurier extends Personnage {
+    constructor(nom, sante, force, xp, titre = 'Aventurier') {
         super(nom, sante, force, titre);
         this.xp = xp;
     }
@@ -123,33 +123,33 @@ class SommeNombres {
         return `${super.decrire()} et ${this.xp} points d'expérience`;
     }
 }
- class Guerrier extends Personnage {
-    constructor (nom, sante, force, xp, rage, titre = 'Guerrier') {
+class Guerrier extends Personnage {
+    constructor(nom, sante, force, xp, rage, titre = 'Guerrier') {
         super(nom, sante, force, titre)
         this.xp = xp;
         this.rage = rage;
     }
     decrire() {
-        return `${super.decrire()} et ${this.xp} points d'expérience et ${this.rage} points de rage`; 
+        return `${super.decrire()} et ${this.xp} points d'expérience et ${this.rage} points de rage`;
     }
 }
- class Paladin extends Aventurier {
-    constructor (nom, sante, force, xp, vertu, titre = 'Paladin') {
+class Paladin extends Aventurier {
+    constructor(nom, sante, force, xp, vertu, titre = 'Paladin') {
         super(nom, sante, force, xp, titre)
         this.vertu = vertu;
     }
     decrire() {
-        return `${super.decrire()} et ${this.vertu} points de vertu`; 
+        return `${super.decrire()} et ${this.vertu} points de vertu`;
     }
 }
- class Mage extends Personnage {
-    constructor (nom, sante, force, xp, mana, titre = 'Mage') {
+class Mage extends Personnage {
+    constructor(nom, sante, force, xp, mana, titre = 'Mage') {
         super(nom, sante, force, titre)
         this.xp = xp;
         this.mana = mana;
     }
     decrire() {
-        return `${super.decrire()} et ${this.xp} points d'expérience et ${this.mana} points de mana`; 
+        return `${super.decrire()} et ${this.xp} points d'expérience et ${this.mana} points de mana`;
     }
 }
 /*--------------Jeu---------------*/
@@ -168,35 +168,38 @@ console.log({
     sante: aventurier.sante,
     force: aventurier.force,
     xp: aventurier.xp
-  });
+});
 
 const perso2 = new Personnage('Sigfrid', 'Guerrier', 1200, 100, 80, 70);
 const guerrier = new Guerrier(perso2, 1200, 100, 80, 70);
-console.log({ 
+console.log({
     nom: guerrier.nom,
-    titre : guerrier.titre,
+    titre: guerrier.titre,
     sante: guerrier.sante,
     force: guerrier.force,
     xp: guerrier.xp,
-    rage: guerrier.rage });
+    rage: guerrier.rage
+});
 
 const perso3 = new Personnage('Galahad', 'Paladin', 1000, 100, 60, 50);
 const paladin = new Paladin(perso3, 1000, 100, 60, 50);
-console.log({ 
+console.log({
     nom: paladin.nom,
-    titre : paladin.titre,
+    titre: paladin.titre,
     sante: paladin.sante,
     force: paladin.force,
     xp: paladin.xp,
-    vertu: paladin.vertu });
+    vertu: paladin.vertu
+});
 
 const perso4 = new Personnage('Flora', 'Mage', 1100, 120, 70, 90);
 const mage = new Mage(perso4, 1100, 120, 70, 90);
-console.log({ 
+console.log({
     nom: mage.nom,
     titre: mage.titre,
     sante: mage.sante,
     force: mage.force,
     xp: mage.xp,
-    mana: mage.mana });
+    mana: mage.mana
+});
 /*----------------------Fin jeux----------------*/
