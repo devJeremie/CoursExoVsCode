@@ -24,6 +24,10 @@
 .green {
     background-color: green;
 }
+.active {
+    display: block ;
+    /* Seule la lumière active est visible */
+}
 /*--------------------Modale--------------------*/
 .modale {
     position: fixed;
@@ -34,7 +38,9 @@
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
   }
-  
+.modale.active {
+    display: block;
+}
   .contenu-modale {
     position: absolute;
     top: 50%;

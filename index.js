@@ -1,23 +1,30 @@
+/*-------Exercice 1 --------*/
+// function isPair(nbr) {
+//     return nbr % 2 === 0
+// }
+// console.log(isPair(4));
+// console.log(isPair(7));
+// console.log(isPair(12));
+/*------Fin exercice 1------*/
+// function isPalindrome(string) {
+//     return string === string.split('').reverse().join('');
+// }
 
-function isPalindrome(string) {
-    return string === string.split('').reverse().join('');
-}
-
-const userInput = prompt("Please enter a word:");
-if (isPalindrome(userInput)) {
-    alert(`"${userInput}" is a palindrome.`);
-} else {
-    console.log(`"${userInput}" is not a palindrome.`);
-}
+// const userInput = prompt("Please enter a word:");
+// if (isPalindrome(userInput)) {
+//     alert(`"${userInput}" is a palindrome.`);
+// } else {
+//     console.log(`"${userInput}" is not a palindrome.`);
+// }
 /*--------------Feu tricolore--------------*/
-let lights = document.querySelectorAll('.light');//selectionn eles éléments du dom avec la classe light et les stockent dans lights
-let currentIndex = 0;//on initialise a zero, on l'utilisera pour suivre l'index de la lumière
+// let lights = document.querySelectorAll('.light');//selectionne les éléments du dom avec la classe light et les stockent dans lights
+// let currentIndex = 0;//on initialise a zero, on l'utilisera pour suivre l'index de la lumière
 
 function changeColor() {
-    lights.forEach((light, index) => {//parcourt toutes les lulières stockées dans lights
+    lights.forEach((light, index) => {//parcourt toutes les lumières stockées dans lights
         if (index === currentIndex) {//cela compare si l'index de la lumiere actulle est egale à l'index actuel si oui la lumiere est activée
             light.classList.add('light-' + light.classList[0]);//cela ajoute la classe light suivi du nom de la classe actuelle de la lumiere à la lumière actuelle
-            light.style.display = 'block';//affiche la lumiere actuelle en prpriete de style sur block
+            light.style.display = 'block';//affiche la lumiere actuelle en propriete de style sur block
         } else {
             light.classList.remove('light-' + light.classList[0]);//cela supprime la classe light suivi du nom de la classe actuelle de la lumiere de la lumière actuelle
             light.style.display = 'none';
@@ -30,53 +37,140 @@ function changeColor() {
 }
 
 setInterval(changeColor, 3000);//change de couleur toutes les 3secondes
-/*----------Fin Feu Tricolore--------------*
-/*------------------Modal------------------*/
-const modale = document.getElementById("modale");
-const ouvrirModal = document.getElementById("ouvrir-modal");
-const fermerModale = document.querySelector(".fermer-modale");
 
-ouvrirModal.addEventListener("click", () => {
-    modale.style.display = "block";
-});
 
-fermerModale.addEventListener("click", () => {
-    modale.style.display = "none";
-});
+/*-----------avec boucle for---------------*/
+// let lights = document.querySelectorAll('.light');
+// let currentIndex = 0;
 
-window.addEventListener("click", (event) => {
-    if (event.target === modale) {
-        modale.style.display = "none";
+// function changeColor() {
+//     for (let i = 0; i < lights.length; i++) {
+//         if (i === currentIndex) {
+//             lights[i].classList.add('light-' + lights[i].classList[0]);
+//             lights[i].style.display = 'block';
+//         } else {
+//             lights[i].classList.remove('light-' + lights[i].classList[0]);
+//             lights[i].style.display = 'none';
+//         }
+//     }
+//     currentIndex++;
+//     if (currentIndex >= lights.length) {
+//         currentIndex = 0;
+//     }
+// }
+
+// setInterval(changeColor, 3000);
+/*------------Plus simple avec classe active-------------*/
+
+// On sélectionne tous les éléments du DOM qui ont la classe 'light'
+let lights = document.querySelectorAll('.light');
+
+// On initialise l'index courant à 0 (c'est la lumière qui sera allumée en premier)
+let currentIndex = 0;
+
+// Fonction qui change la couleur du feu tricolore
+function changeColor() {
+    /**
+     * ÉTAPE 1 : RÉINITIALISATION (Nettoyage)
+     * Avant d'allumer une nouvelle lumière, on doit s'assurer que toutes les autres
+     * sont éteintes. On utilise une boucle pour parcourir chaque élément.
+     */
+    for (let i = 0; i < lights.length; i++) {
+        // On retire la classe 'active' à chaque lumière pour les éteindre
+        lights[i].classList.remove('active');
     }
-});
+    /**
+     * ÉTAPE 2 : ALLUMAGE
+     * On accède à la lumière cible via son index et on lui ajoute la classe 'active'.
+     */
+    lights[currentIndex].classList.add('active');
+
+    /**
+     * ÉTAPE 3 : GESTION DE LA SÉQUENCE
+     * On incrémente l'index pour préparer le prochain tour.
+     */
+    currentIndex++;
+        /**
+     * ÉTAPE 4 : BOUCLE
+     *Si on a dépassé la dernière lumière, on revient à la première (boucle)
+     */
+    if (currentIndex >= lights.length) {
+        currentIndex = 0;
+    }
+}
+/**
+ * AUTOMATISATION
+ * La méthode setInterval exécute la fonction 'changeColor' de manière répétée
+ * à un intervalle fixe de 3000 millisecondes (soit 3 secondes).
+ */
+setInterval(changeColor, 3000);
+
+/*----------Fin Feu Tricolore--------------*/
+// /*------------------Modal------------------*/
+// const modale = document.getElementById("modale");
+// const ouvrirModal = document.getElementById("ouvrir-modal");
+// const fermerModale = document.querySelector(".fermer-modale");
+
+// ouvrirModal.addEventListener("click", () => {
+//     modale.style.display = "block";
+// });
+
+// fermerModale.addEventListener("click", () => {
+//     modale.style.display = "none";
+// });
+
+// window.addEventListener("click", (event) => {
+//     if (event.target === modale) {
+//         modale.style.display = "none";
+//     }
+// });
+/*------------Plus simple---------------*/
+const modale = document.getElementById("modale");
+document.getElementById("ouvrir-modal").onclick = () => modale.classList.add("active");
+document.querySelector(".fermer-modale").onclick = () => modale.classList.remove("active");
+window.onclick = (e) => {
+    if (e.target === modale) modale.classList.remove("active");
+};
 /*------------------Fin Modale------------------*/
 /*--------------Classe Javascript----------------*/
 class SommeNombres {
     constructor(listeNombres) {
-        this.listeNombres = listeNombres;
+        this.numberList = listeNombres;
     }
 
-    calculerSomme() {
+    addSomme() {
         let somme = 0;
-        for (let nombre of this.listeNombres) {
-            somme += nombre;
+        for (let nombre of this.numberList) {
+            somme+= nombre;
+            //somme + nombre = somme;
+            // 0     + 1      = 1
         }
         return somme;
     }
-
+    
     afficherResultat() {
-        const somme = this.calculerSomme();
-        console.log(`La somme des nombres de la liste est : ${somme}`);
+        const result = this.addSomme();
+        console.log(`La somme des nombres de la liste est : ${result}`);
     }
 }
 
 // Utilisation de la classe
 const listeNombres = [1, 2, 3, 4, 5];
-const sommeNombres = new SommeNombres(listeNombres);
-sommeNombres.afficherResultat();
+const resultNumbers = new SommeNombres(listeNombres);
+resultNumbers.afficherResultat();
+let secondList = [256, 896,417,239,9674];
+let resultSecond = new SommeNombres(secondList);
+resultSecond.afficherResultat();
+
 /*-----------Fin Classe-----------*/
 
+
 /*------------Jeu aventurier-----------------*/
+// Les paramètres sont - ils obligatoires ?
+
+//     Non, ils ne sont pas obligatoires: tu peux créer un objet sans arguments.
+
+//     Mais : si tu veux que les propriétés aient des valeurs précises, tu dois les fournir lors de la création de l’objet.
 
 /*----------------Module combat--------------*/
 class Arme {
@@ -89,6 +183,17 @@ class Arme {
         return ` A ${this.hammer} and a ${this.shield} and a ${this.sword}`;
     }
 }
+// class Arme {
+//     constructor(hammer= 'no hammer', shield='no shield', sword='sword') {
+//         this.hammer = hammer;
+//         this.shield = shield;
+//         this.sword = sword;
+//     }
+//     decrire() {
+//         return ` A ${this.hammer} and a ${this.shield} and a ${this.sword}`;
+//     }
+// }
+// Tu connais la blague du gars qui n'a pas vérouillé son écran ?
 class Sort {
     constructor(firespell, icespell, waterspell, rockrain) {
         this.firespell = firespell;
@@ -100,6 +205,16 @@ class Sort {
         return `The ${this.firespell} and ${this.icespell} and ${this.waterspell} and ${this.rockrain}`;
     }
 }
+let weapon1 = new Arme();
+console.log(weapon1.decrire());
+
+let weapon2 = new Arme("gros marteau", "grand bouclier");
+console.log(weapon2.decrire());
+
+let weapon3 = new Arme("gros marteau", "grand bouclier", "épée magique");
+console.log(weapon3.decrire());
+
+
 /*------------module personnage---------------*/
 class Personnage {
     constructor(nom, sante, force, titre) {
