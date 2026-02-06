@@ -20,23 +20,46 @@
 // let lights = document.querySelectorAll('.light');//selectionne les éléments du dom avec la classe light et les stockent dans lights
 // let currentIndex = 0;//on initialise a zero, on l'utilisera pour suivre l'index de la lumière
 
+// function changeColor() {
+//     lights.forEach((light, index) => {//parcourt toutes les lumières stockées dans lights
+//         if (index === currentIndex) {//cela compare si l'index de la lumiere actulle est egale à l'index actuel si oui la lumiere est activée
+//             light.classList.add('light-' + light.classList[0]);//cela ajoute la classe light suivi du nom de la classe actuelle de la lumiere à la lumière actuelle
+//             light.style.display = 'block';//affiche la lumiere actuelle en propriete de style sur block
+//         } else {
+//             light.classList.remove('light-' + light.classList[0]);//cela supprime la classe light suivi du nom de la classe actuelle de la lumiere de la lumière actuelle
+//             light.style.display = 'none';
+//         }
+//     });
+//     currentIndex++;//verifie si l'index actuel est supérieur ou egal al la longueur de la variable lights, si oui l'index est reinitialisé a zero
+//     if (currentIndex >= lights.length) {
+//         currentIndex = 0;
+//     }
+// }
+
+// setInterval(changeColor, 3000);//change de couleur toutes les 3secondes
+/*-------------Avec les boites differentes qui s'allument----------------*/
+let lights = document.querySelectorAll('.light');
+let currentIndex = 0;
+
 function changeColor() {
-    lights.forEach((light, index) => {//parcourt toutes les lumières stockées dans lights
-        if (index === currentIndex) {//cela compare si l'index de la lumiere actulle est egale à l'index actuel si oui la lumiere est activée
-            light.classList.add('light-' + light.classList[0]);//cela ajoute la classe light suivi du nom de la classe actuelle de la lumiere à la lumière actuelle
-            light.style.display = 'block';//affiche la lumiere actuelle en propriete de style sur block
+    lights.forEach((light, index) => {
+        if (index === currentIndex) {
+            // Allume la bonne couleur de cette div
+            light.classList.add('active');
+            light.style.opacity = '1';
         } else {
-            light.classList.remove('light-' + light.classList[0]);//cela supprime la classe light suivi du nom de la classe actuelle de la lumiere de la lumière actuelle
-            light.style.display = 'none';
+            // Éteint les autres
+            light.classList.remove('active');
+            light.style.opacity = '0.3';
         }
     });
-    currentIndex++;//verifie si l'index actuel est supérieur ou egal al la longueur de la variable lights, si oui l'index est reinitialisé a zero
+    currentIndex++;
     if (currentIndex >= lights.length) {
         currentIndex = 0;
     }
 }
+setInterval(changeColor, 3000);
 
-setInterval(changeColor, 3000);//change de couleur toutes les 3secondes
 
 
 /*-----------avec boucle for---------------*/
@@ -62,46 +85,46 @@ setInterval(changeColor, 3000);//change de couleur toutes les 3secondes
 // setInterval(changeColor, 3000);
 /*------------Plus simple avec classe active-------------*/
 
-// On sélectionne tous les éléments du DOM qui ont la classe 'light'
-let lights = document.querySelectorAll('.light');
-// On initialise l'index courant à 0 (c'est la lumière qui sera allumée en premier)
-let currentIndex = 0;
+// // On sélectionne tous les éléments du DOM qui ont la classe 'light'
+// let lights = document.querySelectorAll('.light');
+// // On initialise l'index courant à 0 (c'est la lumière qui sera allumée en premier)
+// let currentIndex = 0;
 
-// Fonction qui change la couleur du feu tricolore
-function changeColor() {
-    /**
-     * ÉTAPE 1 : RÉINITIALISATION (Nettoyage)
-     * Avant d'allumer une nouvelle lumière, on doit s'assurer que toutes les autres
-     * sont éteintes. On utilise une boucle pour parcourir chaque élément.
-     */
-    for (let i = 0; i < lights.length; i++) {
-        // On retire la classe 'active' à chaque lumière pour les éteindre
-        lights[i].classList.remove('active');
-    }
-    /**
-     * ÉTAPE 2 : ALLUMAGE
-     * On accède à la lumière cible via son index et on lui ajoute la classe 'active'.
-     */
-    lights[currentIndex].classList.add('active');
-    /**
-     * ÉTAPE 3 : GESTION DE LA SÉQUENCE
-     * On incrémente l'index pour préparer le prochain tour.
-     */
-    currentIndex++;
-        /**
-     * ÉTAPE 4 : BOUCLE
-     *Si on a dépassé la dernière lumière, on revient à la première (boucle)
-     */
-    if (currentIndex >= lights.length) {
-        currentIndex = 0;
-    }
-}
-/**
- * AUTOMATISATION
- * La méthode setInterval exécute la fonction 'changeColor' de manière répétée
- * à un intervalle fixe de 3000 millisecondes (soit 3 secondes).
- */
-setInterval(changeColor, 3000);
+// // Fonction qui change la couleur du feu tricolore
+// function changeColor() {
+//     /**
+//      * ÉTAPE 1 : RÉINITIALISATION (Nettoyage)
+//      * Avant d'allumer une nouvelle lumière, on doit s'assurer que toutes les autres
+//      * sont éteintes. On utilise une boucle pour parcourir chaque élément.
+//      */
+//     for (let i = 0; i < lights.length; i++) {
+//         // On retire la classe 'active' à chaque lumière pour les éteindre
+//         lights[i].classList.remove('active');
+//     }
+//     /**
+//      * ÉTAPE 2 : ALLUMAGE
+//      * On accède à la lumière cible via son index et on lui ajoute la classe 'active'.
+//      */
+//     lights[currentIndex].classList.add('active');
+//     /**
+//      * ÉTAPE 3 : GESTION DE LA SÉQUENCE
+//      * On incrémente l'index pour préparer le prochain tour.
+//      */
+//     currentIndex++;
+//         /**
+//      * ÉTAPE 4 : BOUCLE
+//      *Si on a dépassé la dernière lumière, on revient à la première (boucle)
+//      */
+//     if (currentIndex >= lights.length) {
+//         currentIndex = 0;
+//     }
+// }
+// /**
+//  * AUTOMATISATION
+//  * La méthode setInterval exécute la fonction 'changeColor' de manière répétée
+//  * à un intervalle fixe de 3000 millisecondes (soit 3 secondes).
+//  */
+// setInterval(changeColor, 3000);
 
 /*----------Fin Feu Tricolore--------------*/
 // /*------------------Modal------------------*/
@@ -123,12 +146,12 @@ setInterval(changeColor, 3000);
 //     }
 // });
 /*------------Plus simple---------------*/
-const modale = document.getElementById("modale");
-document.getElementById("ouvrir-modal").onclick = () => modale.classList.add("active");
-document.querySelector(".fermer-modale").onclick = () => modale.classList.remove("active");
-window.onclick = (e) => {
-    if (e.target === modale) modale.classList.remove("active");
-};
+// const modale = document.getElementById("modale");
+// document.getElementById("ouvrir-modal").onclick = () => modale.classList.add("active");
+// document.querySelector(".fermer-modale").onclick = () => modale.classList.remove("active");
+// window.onclick = (e) => {
+//     if (e.target === modale) modale.classList.remove("active");
+// };
 /*------------------Fin Modale------------------*/
 /*--------------Classe Javascript----------------*/
 class SommeNombres {
