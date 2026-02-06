@@ -64,7 +64,6 @@ setInterval(changeColor, 3000);//change de couleur toutes les 3secondes
 
 // On sélectionne tous les éléments du DOM qui ont la classe 'light'
 let lights = document.querySelectorAll('.light');
-
 // On initialise l'index courant à 0 (c'est la lumière qui sera allumée en premier)
 let currentIndex = 0;
 
@@ -84,7 +83,6 @@ function changeColor() {
      * On accède à la lumière cible via son index et on lui ajoute la classe 'active'.
      */
     lights[currentIndex].classList.add('active');
-
     /**
      * ÉTAPE 3 : GESTION DE LA SÉQUENCE
      * On incrémente l'index pour préparer le prochain tour.
