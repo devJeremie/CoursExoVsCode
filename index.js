@@ -38,27 +38,27 @@
 
 // setInterval(changeColor, 3000);//change de couleur toutes les 3secondes
 /*-------------Avec les boites differentes qui s'allument----------------*/
-let lights = document.querySelectorAll('.light');
-let currentIndex = 0;
+// let lights = document.querySelectorAll('.light');
+// let currentIndex = 0;
 
-function changeColor() {
-    lights.forEach((light, index) => {
-        if (index === currentIndex) {
-            // Allume la bonne couleur de cette div
-            light.classList.add('active');
-            light.style.opacity = '1';
-        } else {
-            // Éteint les autres
-            light.classList.remove('active');
-            light.style.opacity = '0.3';
-        }
-    });
-    currentIndex++;
-    if (currentIndex >= lights.length) {
-        currentIndex = 0;
-    }
-}
-setInterval(changeColor, 3000);
+// function changeColor() {
+//     lights.forEach((light, index) => {
+//         if (index === currentIndex) {
+//             // Allume la bonne couleur de cette div
+//             light.classList.add('active');
+//             light.style.opacity = '1';
+//         } else {
+//             // Éteint les autres
+//             light.classList.remove('active');
+//             light.style.opacity = '0.3';
+//         }
+//     });
+//     currentIndex++;
+//     if (currentIndex >= lights.length) {
+//         currentIndex = 0;
+//     }
+// }
+// setInterval(changeColor, 3000);
 
 
 
@@ -128,23 +128,23 @@ setInterval(changeColor, 3000);
 
 /*----------Fin Feu Tricolore--------------*/
 // /*------------------Modal------------------*/
-// const modale = document.getElementById("modale");
-// const ouvrirModal = document.getElementById("ouvrir-modal");
-// const fermerModale = document.querySelector(".fermer-modale");
+const modale = document.getElementById("modale");
+const ouvrirModal = document.getElementById("ouvrir-modal");
+const fermerModale = document.querySelector(".fermer-modale");
 
-// ouvrirModal.addEventListener("click", () => {
-//     modale.style.display = "block";
-// });
+ouvrirModal.addEventListener("click", () => {
+    modale.style.display = "block";
+});
 
-// fermerModale.addEventListener("click", () => {
-//     modale.style.display = "none";
-// });
+fermerModale.addEventListener("click", () => {
+    modale.style.display = "none";
+});
 
-// window.addEventListener("click", (event) => {
-//     if (event.target === modale) {
-//         modale.style.display = "none";
-//     }
-// });
+window.addEventListener("click", (event) => {
+    if (event.target === modale) {
+        modale.style.display = "none";
+    }
+});
 /*------------Plus simple---------------*/
 // const modale = document.getElementById("modale");
 // document.getElementById("ouvrir-modal").onclick = () => modale.classList.add("active");
@@ -153,13 +153,42 @@ setInterval(changeColor, 3000);
 //     if (e.target === modale) modale.classList.remove("active");
 // };
 /*------------------Fin Modale------------------*/
+/*-----------Exemple de classe Javascript----------*/
+// class Voiture {
+//     // CONSTRUCTOR = fonction appelée AUTOMATIQUEMENT à la création d'un objet
+//     constructor(marque, couleur, vitesse = 0) {
+//         // this = l'objet courant qu'on crée
+//         this.marque = marque;      // propriété marque = paramètre marque
+//         this.couleur = couleur;    // propriété couleur = paramètre couleur  
+//         this.vitesse = vitesse;    // propriété vitesse = paramètre vitesse (0 par défaut)
+//     }
+//     // MÉTHODE 1 : accélérer
+//     accelerer(puissance) {
+//         this.vitesse += puissance;
+//         console.log(`${this.marque} accélère ! Vitesse: ${this.vitesse} km/h`);
+//     }
+//     // MÉTHODE 2 : freiner
+//     freiner(puissance) {
+//         this.vitesse = Math.max(0, this.vitesse - puissance);
+//         console.log(`${this.marque} freine ! Vitesse: ${this.vitesse} km/h`);
+//     }
+//     // MÉTHODE 3 : info
+//     afficherInfo() {
+//         console.log(`Voiture ${this.marque} (${this.couleur}) à ${this.vitesse} km/h`);
+//     }
+// }
+// // UTILISATION (comme ton SommeNombres)
+// const maVoiture = new Voiture("Ferrari", "Rouge");  // constructor appelé
+// maVoiture.accelerer(297);     // → "Ferrari accélère ! Vitesse: 50 km/h"  
+// maVoiture.afficherInfo();    // → "Voiture Ferrari (Rouge) à 50 km/h"
+
 /*--------------Classe Javascript----------------*/
 class SommeNombres {
     constructor(listeNombres) {
         this.numberList = listeNombres;
     }
 
-    addSomme() {
+    calculSomme() {
         let somme = 0;
         for (let nombre of this.numberList) {
             somme+= nombre;
@@ -170,7 +199,7 @@ class SommeNombres {
     }
     
     afficherResultat() {
-        const result = this.addSomme();
+        const result = this.calculSomme();
         console.log(`La somme des nombres de la liste est : ${result}`);
     }
 }

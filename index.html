@@ -26,8 +26,28 @@
             </div>
         </div>
     </section>
+    <!--Exemple classe qui dit bonjour-->
     <section>
-        
+        <script>
+            class Calculateur {
+                    // Le constructeur initialise la donnée de notre objet
+                    constructor(valeurInitiale) {
+                        this.total = valeurInitiale;
+                    }
+                    // Fonction 1 : Modifie la donnée
+                    ajouter(nombre) {
+                        this.total += nombre;
+                    }
+                    // Fonction 2 : Affiche la donnée
+                    afficher() {
+                        console.log(`Le total actuel est : ${this.total}`);
+                    }
+                }
+                // Utilisation
+                const monCalcul = new Calculateur(20); // On initialise à 10
+                monCalcul.ajouter(2);                  // On ajoute 5
+                monCalcul.afficher();                  // Affiche : Le total actuel est : 15
+        </script>
     </section>
     <script src="index.js"></script>
 </body>
