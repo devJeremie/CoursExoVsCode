@@ -183,34 +183,34 @@ window.addEventListener("click", (event) => {
 // maVoiture.afficherInfo();    // → "Voiture Ferrari (Rouge) à 50 km/h"
 
 /*--------------Classe Javascript----------------*/
-class SommeNombres {
-    constructor(listeNombres) {
-        this.numberList = listeNombres;
-    }
+// class SommeNombres {
+//     constructor(listeNombres) {
+//         this.numberList = listeNombres;
+//     }
 
-    calculSomme() {
-        let somme = 0;
-        for (let nombre of this.numberList) {
-            somme+= nombre;
-            //somme + nombre = somme;
-            // 0     + 1      = 1
-        }
-        return somme;
-    }
+//     calculSomme() {
+//         let somme = 0;
+//         for (let nombre of this.numberList) {
+//             somme+= nombre;
+//             //somme + nombre = somme;
+//             // 0     + 1      = 1
+//         }
+//         return somme;
+//     }
     
-    afficherResultat() {
-        const result = this.calculSomme();
-        console.log(`La somme des nombres de la liste est : ${result}`);
-    }
-}
+//     afficherResultat() {
+//         const result = this.calculSomme();
+//         console.log(`La somme des nombres de la liste est : ${result}`);
+//     }
+// }
 
-// Utilisation de la classe
-const listeNombres = [1, 2, 3, 4, 5];
-const resultNumbers = new SommeNombres(listeNombres);
-resultNumbers.afficherResultat();
-let secondList = [256, 896,417,239,9674];
-let resultSecond = new SommeNombres(secondList);
-resultSecond.afficherResultat();
+// // Utilisation de la classe
+// const listeNombres = [1, 2, 3, 4, 5];
+// const resultNumbers = new SommeNombres(listeNombres);
+// resultNumbers.afficherResultat();
+// let secondList = [256, 896,417,239,9674];
+// let resultSecond = new SommeNombres(secondList);
+// resultSecond.afficherResultat();
 
 /*-----------Fin Classe-----------*/
 
