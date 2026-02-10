@@ -223,16 +223,16 @@ window.addEventListener("click", (event) => {
 //     Mais : si tu veux que les propriétés aient des valeurs précises, tu dois les fournir lors de la création de l’objet.
 
 /*----------------Module combat--------------*/
-// class Arme {
-//     constructor(hammer, shield, sword) {
-//         this.hammer = hammer;
-//         this.shield = shield;
-//         this.sword = sword;
-//     }
-//     decrire() {
-//         return ` A ${this.hammer} and a ${this.shield} and a ${this.sword}`;
-//     }
-// }
+class Arme {
+    constructor(hammer, shield, sword) {
+        this.hammer = hammer;
+        this.shield = shield;
+        this.sword = sword;
+    }
+    decrire() {
+        return ` A ${this.hammer} and a ${this.shield} and a ${this.sword}`;
+    }
+}
 // // class Arme {
 // //     constructor(hammer= 'no hammer', shield='no shield', sword='sword') {
 // //         this.hammer = hammer;
@@ -244,25 +244,25 @@ window.addEventListener("click", (event) => {
 // //     }
 // // }
 // // Tu connais la blague du gars qui n'a pas vérouillé son écran ?
-// class Sort {
-//     constructor(firespell, icespell, waterspell, rockrain) {
-//         this.firespell = firespell;
-//         this.icespell = icespell;
-//         this.waterspell = waterspell;
-//         this.rockrain = rockrain;
-//     }
-//     decrire() {
-//         return `The ${this.firespell} and ${this.icespell} and ${this.waterspell} and ${this.rockrain}`;
-//     }
-// }
-// let weapon1 = new Arme();
-// console.log(weapon1.decrire());
+class Sort {
+    constructor(firespell, icespell, waterspell, rockrain) {
+        this.firespell = firespell;
+        this.icespell = icespell;
+        this.waterspell = waterspell;
+        this.rockrain = rockrain;
+    }
+    decrire() {
+        return `The ${this.firespell} and ${this.icespell} and ${this.waterspell} and ${this.rockrain}`;
+    }
+}
+let weapon1 = new Arme();
+console.log(weapon1.decrire());
 
-// let weapon2 = new Arme("gros marteau", "grand bouclier");
-// console.log(weapon2.decrire());
+let weapon2 = new Arme("gros marteau", "grand bouclier");
+console.log(weapon2.decrire());
 
-// let weapon3 = new Arme("gros marteau", "grand bouclier", "épée magique");
-// console.log(weapon3.decrire());
+let weapon3 = new Arme("gros marteau", "grand bouclier", "épée magique");
+console.log(weapon3.decrire());
 
 
 /*------------module personnage---------------*/
